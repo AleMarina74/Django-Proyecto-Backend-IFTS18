@@ -4,6 +4,7 @@
     <h1>Lista de Autores</h1>
 
     <a href="{% url 'createautor' %}">Crear Autor</a>
+    <a href="{% url 'books' %}" class="button">Cancelar</a>
 
     <ul>
         {% for autor in autores %}

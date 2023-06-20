@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Lista de Genero</h1>
+    <h3>Lista de Genero</h3>
 
     <a href="{% url 'creategenero' %}">Crear Genero</a>
+    <a href="{% url 'books' %}" class="button">Cancelar</a>
 
     <ul>
         {% for genero in generos %}

@@ -2,7 +2,7 @@
 
 {% block content %}
     {% csrf_token %}
-    <h1>Detalle del Cliente</h1>
+    <h3>Detalle del Cliente</h3>
 
     <p>Nombre: {{ clientes.nombre }}</p>
     <p>Apellido: {{ clientes.apellido }}</p>
@@ -14,4 +14,5 @@
     <a href="{% url 'updateclient' clientes.id %}">Editar Cliente</a>
     <a href="{% url 'deleteclient' clientes.id %}">Eliminar Cliente </a>
     #<a href="{% url 'prestamo' clientes.id %}">Listar Pagos del Cliente</a>
+    <a href="{% url 'clients' %}" class="button">Cancelar</a>
 {% endblock %}
