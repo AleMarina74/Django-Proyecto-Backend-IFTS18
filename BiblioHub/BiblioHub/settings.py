@@ -51,6 +51,7 @@ APPS_SISTEMAS =[
     'apps.libro',
     'apps.usuario',
     'apps.utils',
+    'apps.prestamo',
 ] 
 
 INSTALLED_APPS= DJANGO_APPS + APPS_SISTEMAS
@@ -92,12 +93,8 @@ WSGI_APPLICATION = 'BiblioHub.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DATABASE_NAME"),
-        'USER': env("DATABASE_USER"),
-        'PASSWORD': env("DATABASE_PASSWORD"),
-        'HOST': env("DATABASE_HOST"),
-        'PORT': env("DATABASE_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
