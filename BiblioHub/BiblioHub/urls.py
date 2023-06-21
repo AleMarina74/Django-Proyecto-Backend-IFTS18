@@ -21,7 +21,7 @@ from apps.cliente.views import clients, client,ClientesTemplateView,ClienteCreat
 from apps.libro.views import BooksTemplateView, book, BookTemplateView, BookCreate, BookDelete,BookDetail,BookList,BookUpdate
 from apps.autor.views import  Autor, AutorCreate,AutorDetail,AutorList,AutorUpdate
 from apps.genero.views import  Genero, GeneroCreate,GeneroDetail,GeneroList,GeneroUpdate
-from apps.prestamo.views import PrestamoCreate, PrestamoDetail, PrestamoList, PrestamoUpdate, prestamosviews, prestamoviews, PrestamoCreateView, DevolucionCreateView
+from apps.prestamo.views import PrestamoCreate, PrestamoDetail, PrestamoList, PrestamoUpdate, prestamosviews, prestamoviews, PrestamoCreateView, DevolucionCreateView, PrestamosTemplateView
 
 urlpatterns = [
     path('', home, name='home'),
@@ -46,7 +46,7 @@ urlpatterns = [
     path('genero/create/', GeneroCreate.as_view(), name='creategenero'),
     path('genero/<int:pk>/detail/',GeneroDetail.as_view(), name='detailgenero'),
     path('genero/<int:pk>/update/', GeneroUpdate.as_view(), name='updategenero'),
-    path('prestamos/', prestamosviews, name='prestamos'),
+    path('prestamos/', PrestamosTemplateView.as_view(), name='prestamos'),
     path('prestamos/<int:id>', prestamoviews, name='prestamo'),
     path('prestamo/list/',PrestamoList.as_view(), name='listprestamo'),
     path('prestamo/create/', PrestamoCreateView.as_view(), name='createprestamo'),

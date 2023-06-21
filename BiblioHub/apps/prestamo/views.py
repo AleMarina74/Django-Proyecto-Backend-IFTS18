@@ -36,7 +36,29 @@ def prestamosviews(request):
     }
     return render(request=request, template_name='prestamos.html', context=context)
 
+class PrestamosTemplateView(LoginRequiredMixin,TemplateView):
+    template_name = 'prestamos.html'
+    paginate_by = 10
 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        prestamos = Prestamo.objects.filter(devolucion=False).order_by('cliente')
+        paginator = Paginator(prestamos,self.paginate_by)
+        page_number = self.request.GET.get("page") 
+        context['prestamos']= paginator.get_page(page_number)
+        context['USER'] = self.request.user
+        context['page_heading'] = 'Prestamos'
+        #context["field_keys"] = [field for field in Cliente._meta.get_fields()]
+        fields = [
+        {'name': 'libro', 'label': 'nombre', 'show': True},
+        {'name': 'cliente', 'label': 'apellido', 'show': True},
+        {'name': 'fecha_prestamo', 'label': 'dni', 'show': True},
+        {'name': 'fecha_devolucion', 'label': 'domicilio', 'show': True},
+        {'name': 'devolucion', 'label': 'Disponible', 'show': True},
+  ]
+        context['fields'] = fields
+        return context
 
 class PrestamoCreateView(LoginRequiredMixin,CreateView):
     model = Prestamo
@@ -73,7 +95,7 @@ class PrestamoCreateView(LoginRequiredMixin,CreateView):
     
 class DevolucionCreateView(LoginRequiredMixin, UpdateView):
     model = Prestamo
-    fields = ['fecha_devolucion','devolucion']
+    fields = ['fecha_devolucion']
     template_name = 'crear_devolucion.html'
     success_url = '/prestamos/'  # URL a la que se redirige después de guardar la devolución
 
