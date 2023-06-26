@@ -5,7 +5,6 @@ from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from django.urls import reverse_lazy
 
 
-
 class GeneroList(ListView,LoginRequiredMixin):
     model = Genero
     template_name = 'genero_list.html'

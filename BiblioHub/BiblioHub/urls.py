@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home, user_login, user_signup, user_logout, profile
-from apps.cliente.views import clients, client,ClientesTemplateView,ClienteCreate,ClienteUpdate,ClienteDetail,ClienteDelete
+from apps.cliente.views import client,ClientesTemplateView,ClienteCreate,ClienteUpdate,ClienteDelete
 from apps.libro.views import BooksTemplateView, book, BookTemplateView, BookCreate, BookDelete,BookDetail,BookList,BookUpdate
 from apps.autor.views import  Autor, AutorCreate,AutorDetail,AutorList,AutorUpdate
 from apps.genero.views import  Genero, GeneroCreate,GeneroDetail,GeneroList,GeneroUpdate
@@ -35,7 +35,6 @@ urlpatterns = [
     path('clientes/',ClientesTemplateView.as_view(), name='clients'),
     path('clientes/<int:id>', client, name='client'),
     path('cliente/create/', ClienteCreate.as_view(), name='createclient'),
-    #path('cliente/<int:id>/', ClienteDetail.as_view(), name='detailclient'),
     path('cliente/<int:pk>/update/', ClienteUpdate.as_view(), name='updateclient'),
     path('cliente/<int:pk>/delete/', ClienteDelete.as_view(), name='deleteclient'),
     path('autor/list/',AutorList.as_view(), name='listautor'),
