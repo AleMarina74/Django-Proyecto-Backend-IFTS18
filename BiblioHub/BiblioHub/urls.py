@@ -1,27 +1,11 @@
-"""
-URL configuration for BiblioHub project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from .views import home, user_login, user_signup, user_logout, profile
 from apps.cliente.views import client,ClientesTemplateView,ClienteCreate,ClienteUpdate,ClienteDelete
-from apps.libro.views import BooksTemplateView, book, BookTemplateView, BookCreate, BookDelete,BookDetail,BookList,BookUpdate
-from apps.autor.views import  Autor, AutorCreate,AutorDetail,AutorList,AutorUpdate
-from apps.genero.views import  Genero, GeneroCreate,GeneroDetail,GeneroList,GeneroUpdate
-from apps.prestamo.views import PrestamoCreate, PrestamoDetail, PrestamoList, PrestamoUpdate, prestamosviews, prestamoviews, PrestamoCreateView, DevolucionCreateView, PrestamosTemplateView
+from apps.libro.views import BooksTemplateView, BookTemplateView, BookCreate, BookDelete,BookDetail,BookList,BookUpdate
+from apps.autor.views import  AutorCreate,AutorDetail,AutorList,AutorUpdate
+from apps.genero.views import  GeneroCreate,GeneroDetail,GeneroList,GeneroUpdate
+from apps.prestamo.views import PrestamoDetail, PrestamoList,prestamoviews, PrestamoCreateView, DevolucionCreateView, PrestamosTemplateView
 
 urlpatterns = [
     path('', home, name='home'),
