@@ -4,8 +4,15 @@
     <table>
         <thead>
             <tr>
+<<<<<<< Updated upstream
                 {% for field in fields %}
                     <th>{{ field.name }}</th>
+=======
+                {% for key in field_keys %}
+                    {% if key != 'Cliente.Cliente.deleted_at' %}
+                            <th>{{ key }}</th>
+                    {% endif %}
+>>>>>>> Stashed changes
                 {% endfor %}
             </tr>
         </thead>
